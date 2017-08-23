@@ -39,6 +39,86 @@ export class AppComponent implements OnInit {
     //     }
     //   }
     // }
+
+    this.options = {
+      chart: {
+        type: 'pieChart',
+        height: 500,
+        x: function (d) {
+          return d.key;
+        },
+        y: function (d) {
+          return d.y;
+        },
+        showLabels: true,
+        duration: 500,
+        labelThreshold: 0.01,
+        labelSunbeamLayout: true,
+        legend: {
+          margin: {
+            top: 5,
+            right: 35,
+            bottom: 5,
+            left: 0
+          }
+        }
+      }
+    };
+    this.data = [
+      {
+        key: "corrective modifications",
+        y: 7
+      },
+      {
+        key: "functional modifications",
+        y: 24
+      },
+      {
+        key: "structural modifications",
+        y: 0
+      },
+      {
+        key: "meetings",
+        y: 4
+      },
+      {
+        key: "hr tasks",
+        y: 0
+      },
+      {
+        key: "training",
+        y: 6
+      },
+      {
+        key: "it",
+        y: 0
+      },
+      {
+        key: "admin",
+        y: 4
+      },
+      {
+        key: "sickness",
+        y: 0
+      },
+      {
+        key: "reduction of working time",
+        y: 1
+      },
+      {
+        key: "vacation",
+        y: 25
+      },
+      {
+        key: "maintenance without modif/incident",
+        y: 2
+      },
+      {
+        key: "project without modif/incident",
+        y: 7
+      }
+    ];
+
     // this.data = [
     //   {
     //     key: "Cumulative Return",
@@ -78,37 +158,37 @@ export class AppComponent implements OnInit {
     //     ]
     //   }
     // ];
-    this.options = {
-      chart: {
-        type: 'multiBarChart',
-        height: 450,
-        margin : {
-          top: 20,
-          right: 20,
-          bottom: 45,
-          left: 45
-        },
-        clipEdge: true,
-        // staggerLabels: true,
-        duration: 500,
-        stacked: true,
-        xAxis: {
-          axisLabel: 'Time (ms)',
-          showMaxMin: false,
-          tickFormat: function(d){
-            return d3.format(',f')(d);
-          }
-        },
-        yAxis: {
-          axisLabel: 'Y Axis',
-          axisLabelDistance: -20,
-          tickFormat: function(d){
-            return d3.format(',.1f')(d);
-          }
-        }
-      }
-    };
-    this.data = generateDataMultiBar();
+    // this.options = {
+    //   chart: {
+    //     type: 'multiBarChart',
+    //     height: 450,
+    //     margin : {
+    //       top: 20,
+    //       right: 20,
+    //       bottom: 45,
+    //       left: 45
+    //     },
+    //     clipEdge: true,
+    //     // staggerLabels: true,
+    //     duration: 500,
+    //     stacked: true,
+    //     xAxis: {
+    //       axisLabel: 'Time (ms)',
+    //       showMaxMin: false,
+    //       tickFormat: function(d){
+    //         return d3.format(',f')(d);
+    //       }
+    //     },
+    //     yAxis: {
+    //       axisLabel: 'Y Axis',
+    //       axisLabelDistance: -20,
+    //       tickFormat: function(d){
+    //         return d3.format(',.1f')(d);
+    //       }
+    //     }
+    //   }
+    // };
+    // this.data = generateDataMultiBar();
 // MultiBarChart
     /* Random Data Generator (took from nvd3.org) */
     function generateDataMultiBar() {
